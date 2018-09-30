@@ -1,0 +1,24 @@
+{
+  "name": "learningnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XanderXueMingJi/LearningNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XanderXueMingJi/LearningNode/issues"
+  },
+  "homepage": "https://github.com/XanderXueMingJi/LearningNode#readme",
+  "dependencies": {
+    "koa": "^2.5.3",
+    "koa-route": "^3.2.0"
+  }
+}
