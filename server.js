@@ -7,29 +7,33 @@ const Koa = require('koa');
 const app = new Koa();
 
 const http = require('http'); // 引用模块
+const fs = require('fs');
 
 
 // req: request 请求   用户输入的东西
 // res: response 响应  输出给浏览器的东西
+
+
+// http://localhost:8080/2.html 请求文件
 var server = http.createServer((req, res) => {
     console.log('req.url', req.url);
     // // 发送东西
     // res.write('abc');
 
-    switch(req.url) {
-        case '/1.html':
-            res.write('abc');
-            break;
-        case '/2.html':
-            res.write('def');
-            break;
-        default:
-            res.write('404');
-            break;
-    }
+    const file_name = './www' + req.url;
 
-    // 结束请求
-    res.end();
+    fs.readFile(file_name, (err, data) => {
+        if(err) {
+            res.write('404');
+        }else {
+            res.write(data);
+        }
+
+        // 结束请求
+        res.end();
+    });
+
+
 });
 
 // 监听: 等着
