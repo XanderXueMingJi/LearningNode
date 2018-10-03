@@ -54,14 +54,36 @@
                 })
             }
             login_btn.onclick = function() { //登录
+                // ajax({
+                //     url: '/user',
+                //     data: {
+                //         act: 'login',
+                //         user: user.value,
+                //         password: password.value,
+                //     },
+                //     type: 'get',
+                //     success: function(data) {
+                //         var json = JSON.parse(data);
+                //         console.log('json:', json);
+                //         if(json.OK) {
+                //             alert('登录成功!');
+                //         }else {
+                //             alert('登录失败, 原因是:'+json.msg);
+                //         }
+                //     },
+                //     error: function() {
+                //         alert('通讯错误')
+                //     }
+                // })
                 ajax({
-                    url: '/user',
+                    // url: '/login',
+                    url: '/',
                     data: {
-                        act: 'login',
                         user: user.value,
                         password: password.value,
                     },
-                    type: 'get',
+                    // type: 'get',
+                    type: 'post',
                     success: function(data) {
                         var json = JSON.parse(data);
                         console.log('json:', json);
