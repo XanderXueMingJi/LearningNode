@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action=""> -->
+        用户:
+        <input type="text" name="user" id="user" >
+        <br>
+        密码:
+        <input type="password" name="password" id="password" >
+        <br>
+        <button id="reg_btn" >
+            注册
+        </button>
+        <button id="login_btn" >
+            登录
+        </button>
+
+    <!-- </form> -->
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function() {
+            var user = document.getElementById('user');
+            var password = document.getElementById('password');
+            var reg_btn = document.getElementById('reg_btn');
+            var login_btn = document.getElementById('login_btn');
+
+            reg_btn.onclick = function() { //注册
+                ajax({
+                    url: '/user',
+                    data: {
+                        act: 'reg',
+                        user: user.value,
+                        password: password.value,
+                    },
+                    type: 'get',
+                    success: function(data) {
+                        var json = JSON.parse(data);
+                        console.log('json:', json);
+                        if(json.OK) {
+                            alert('注册成功!');
+                        }else {
+                            alert('注册失败, 原因是:'+json.msg);
+                        }
+                    },
+                    error: function() {
+                        alert('通讯错误')
+                    }
+                })
+            }
+            login_btn.onclick = function() { //登录
+                ajax({
+                    url: '/user',
+                    data: {
+                        act: 'login',
+                        user: user.value,
+                        password: password.value,
+                    },
+                    type: 'get',
+                    success: function(data) {
+                        var json = JSON.parse(data);
+                        console.log('json:', json);
+                        if(json.OK) {
+                            alert('登录成功!');
+                        }else {
+                            alert('登录失败, 原因是:'+json.msg);
+                        }
+                    },
+                    error: function() {
+                        alert('通讯错误')
+                    }
+                })
+            }
+        }
+    </script>
+</body>
+</html>
