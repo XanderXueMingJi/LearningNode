@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    我的名字叫: <%= name %>
+    <% var str="<div>写在ejs里的js代码</div>" %>
+
+    <%- str %>
+
+    <!-- 引入并显示文件内容 -->
+    <% include ./1.jade %>
+
+    <%= json.arr[0].user %>
+    <% for(var i = 0, len = json.arr.length; i < len; i++) { %>
+        <p>
+          用户名:  <%= json.arr[i].user %>
+        </p>
+        <p>
+          密码:  <%= json.arr[i].pass %>
+        </p>
+        <br />
+
+    <% } %>    
+</body>
+</html>
