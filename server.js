@@ -2,6 +2,7 @@
 
 // npm 浏览器调试:
 // npm install --save koa koa-route
+// npm install --save http-assert only parseurl path-is-absolute qs raw-body resolve-path setprototypeof statuses thenify thenify-all vary unpipe type-is path-to-regexp koa-static media-typer methods mime-db mime-types ms mz negotiator on-finished object-assign http-errors iconv-lite inherits is-generator-function keygrip koa koa-body koa-compose koa-convert koa-is-json koa-route koa-send isarray inflation any-promise debug deep-equal delegates depd destroy bytes co co-body content-disposition content-type cookies ee-first error-inject escape-html formidable fresh fs.promised
 
 const Koa = require('koa');
 const app = new Koa();
